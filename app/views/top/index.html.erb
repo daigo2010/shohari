@@ -1,0 +1,5 @@
+<% if current_user %>
+<%= link_to "ログアウト", "/signout" %>
+<% else %>
+<%= link_to "facebookログイン", "/auth/facebook" %>
+<% end %>

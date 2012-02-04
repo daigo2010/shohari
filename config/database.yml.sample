@@ -12,10 +12,10 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: true
-  database: shohari_development
+  database: shohari 
   pool: 5
   username: shohari 
-  password:
+  password: shohari
   socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -25,18 +25,18 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: shohari_test
+  database: shohari
   pool: 5
-  username: root
-  password:
+  username: shohari
+  password: shohari
   socket: /tmp/mysql.sock
 
 production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: shohari_production
+  database: shohari
   pool: 5
-  username: root
-  password:
+  username: shohari
+  password: shohari
   socket: /tmp/mysql.sock
