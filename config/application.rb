@@ -55,5 +55,8 @@ module Shohari
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # facebook friend list uri
+    config.fb_friend_uri = 'https://graph.facebook.com/me/friends?access_token='
   end
 end
