@@ -1,2 +1,4 @@
 www:
   type: ruby
+data:
+  type: mysql
