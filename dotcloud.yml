@@ -1,4 +1,4 @@
 www:
   type: ruby
-data:
+db:
   type: mysql
