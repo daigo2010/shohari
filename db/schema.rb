@@ -10,6 +10,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120201143845) do
+ActiveRecord::Schema.define(:version => 20120206230345) do
+
+  create_table "questions", :force => true do |t|
+    t.string   "question"
+    t.string   "location"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "questions", ["location"], :name => "index_questions_on_location"
+
+  create_table "users", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "screen_name"
+    t.string   "email"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "users", ["provider", "uid"], :name => "index_users_on_provider_and_uid"
 
 end

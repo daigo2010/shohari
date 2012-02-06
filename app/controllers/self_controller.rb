@@ -1,0 +1,2 @@
+class SelfController < ApplicationController
+end
