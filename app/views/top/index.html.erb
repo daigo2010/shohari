@@ -1,5 +1,12 @@
 <% if current_user %>
-<%= link_to "ログアウト", "/signout" %>
+<ul>
+   <li><%= link_to "self check", "/self/check" %></li>
+   <% if @done_self_check %>
+   <li><%= link_to "other check", "/other/check" %> </li>
+   <% if @exists_my_shohari %>
+   <li><%= link_to "open my shohari", "/shohari/me" %> </li>
+   <% end %>
+   <% end %>
+</ul>
 <% else %>
-<%= link_to "facebookログイン", "/auth/facebook" %>
 <% end %>

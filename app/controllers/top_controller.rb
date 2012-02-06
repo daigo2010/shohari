@@ -11,6 +11,8 @@ class TopController < ApplicationController
             http.use_ssl = true
             http.verify_mode = OpenSSL::SSL::VERIFY_NONE
             response = http.request(Net::HTTP::Get.new(uri.request_uri))
+        else
+            redirect_to '/auth/facebook'
         end
     end
 end
