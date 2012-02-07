@@ -1,7 +1,14 @@
+<%= form_tag({:controller => 'self', :action => 'post'}) do %>
+
 <% index = 0 %>
 <% @quest.each do |q| %>
 <% if index % 3 == 0 %><div class="row "><% end %>
-    <div class="span2 well"><%= q.question %></div>
+    <div class="span2 well"><%= check_box_tag("question_" + q.id.to_s) %>&nbsp;<%= q.question %></div>
 <% index = index + 1 %>
 <% if index % 3 == 0 %></div><% end %>
+<% end %>
+<% if index % 3 != 0 %></div><% end %>
+
+<%= submit_tag '登録する', :confirm => 'この内容で登録してよろしいですか？', :disable_with => '処理中...', :class => "btn-primary" %>
+
 <% end %>
