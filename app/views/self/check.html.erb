@@ -1,0 +1,7 @@
+<% index = 0 %>
+<% @quest.each do |q| %>
+<% if index % 3 == 0 %><div class="row "><% end %>
+    <div class="span2 well"><%= q.question %></div>
+<% index = index + 1 %>
+<% if index % 3 == 0 %></div><% end %>
+<% end %>

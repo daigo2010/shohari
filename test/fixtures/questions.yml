@@ -4,8 +4,18 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+<% nextstart = 0 %>
+<% nextmax   = 3 %>
+<% nextstart.upto(nextmax) do |n| %>
+question<%= n %>:
+    question: question<%= n %>
+    location: jp
+<% nextstart = n + 1 %>
+<% end %>
+
+<% nextmax = nextstart + 2 %>
+<% nextstart.upto(nextmax) do |n| %>
+question<%= n %>:
+    question: question<%= n %>
+    location: en
+<% end %>
