@@ -5,7 +5,7 @@
 # below each fixture, per the syntax in the comments below
 #
 <% nextstart = 0 %>
-<% nextmax   = 3 %>
+<% nextmax   = 16 %>
 <% nextstart.upto(nextmax) do |n| %>
 question<%= n %>:
     question: question<%= n %>
