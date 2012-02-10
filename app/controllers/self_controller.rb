@@ -1,7 +1,6 @@
 class SelfController < ApplicationController
     def check 
-        @quest  = Question.where("location = :location", :location => "jp")
-        @answer = Answer.where("answer_user_id = :user_id AND target_user_id = :user_id", :user_id => session[:user_id])
+        @quest = Question.where("location = :location", :location => "jp")
     end
 
     def post
