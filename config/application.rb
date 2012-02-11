@@ -58,5 +58,6 @@ module Shohari
 
     # facebook friend list uri
     config.fb_friend_uri = 'https://graph.facebook.com/me/friends?access_token='
+    config.fb_base = 'https://graph.facebook.com/'
   end
 end
