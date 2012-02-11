@@ -1,8 +1,8 @@
 <% if current_user %>
 <ul>
-   <li><%= link_to "self check", "/self/check" %></li>
+   <li><%= link_to "self check", "/self/check" %><% if !@done_self_check %>&nbsp;<span class="label label-important">&nbsp;next !!</span><% end %></li>
    <% if @done_self_check %>
-   <li><%= link_to "other check", "/other/check" %> </li>
+   <li><%= link_to "other check", "/other/check" %> <% if !@done_other_check %>&nbsp;<span class="label label-important">&nbsp;next !!</span><% end %></li>
    <% if @exists_my_shohari %>
    <li><%= link_to "open my shohari", "/shohari/me" %> </li>
    <% end %>
