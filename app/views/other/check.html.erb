@@ -1,0 +1,7 @@
+<%= form_tag({:controller => 'other', :action => 'post'}) do %>
+
+<%= render :partial => 'share/input' %>
+
+<%= hidden_field_tag(:user_id, @user_id) %>  
+
+<% end %>

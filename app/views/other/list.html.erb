@@ -7,7 +7,7 @@
 <% @friends.each do |f| %>
 <tr>
     <td><%= f[:name] %></td>
-    <td>check this.</td>
+    <td><%= link_to 'check', {:controller => 'other', :action => 'check', :user_id => f[:user_id]} %></td>
 </tr>
     
 <% end %>
