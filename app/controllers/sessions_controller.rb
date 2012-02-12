@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
     user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) 
     if !user then
         User.create_with_omniauth(auth)
+        user = User.find_by_uid(auth["uid"])
 
         # 登録をPOST
         require 'net/https'

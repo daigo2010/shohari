@@ -1,0 +1,15 @@
+<table class="table table-striped">
+<tr>
+    <th>target</th>
+    <th></th>
+</tr>
+<% if @friends %>
+<% @friends.each do |f| %>
+<tr>
+    <td><%= f[:name] %></td>
+    <td>check this.</td>
+</tr>
+    
+<% end %>
+<% end %>
+</table>
