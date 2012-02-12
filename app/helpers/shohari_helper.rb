@@ -1,0 +1,2 @@
+module ShohariHelper
+end

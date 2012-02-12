@@ -4,7 +4,7 @@
    <% if @done_self_check %>
    <li><%= link_to "other check", "/other/list" %> <% if !@done_other_check %>&nbsp;<span class="label label-important">&nbsp;next !!</span><% end %></li>
    <% if @exists_my_shohari %>
-   <li><%= link_to "open my shohari", "/shohari/me" %> </li>
+   <li><%= link_to "open my shohari", "/shohari/showme" %> </li>
    <% end %>
    <% end %>
 </ul>
