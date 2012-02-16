@@ -9,6 +9,12 @@ class OtherController < ApplicationController
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE
         response = http.request(Net::HTTP::Get.new(uri.request_uri))
 
+        if response.code != "200" then
+            reset_session
+            redirect_to '/auth/facebook'
+            return
+        end
+
         require 'json'
         friend_list = JSON.parse(response.body)
         @friends = Array.new
