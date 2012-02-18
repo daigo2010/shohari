@@ -1,20 +1,5 @@
 class OtherController < ApplicationController
     def list
-#        require 'net/https'
-#        require 'uri'
-#        friend_list_uri = Shohari::Application.config.fb_friend_uri
-#        uri = URI.parse(friend_list_uri + session[:access_token])
-#        http = Net::HTTP.new(uri.host, uri.port)
-#        http.use_ssl = true
-#        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-#        response = http.request(Net::HTTP::Get.new(uri.request_uri))
-#
-#        if response.code != "200" then
-#            reset_session
-#            redirect_to '/auth/facebook'
-#            return
-#        end
-
         require 'json'
         friend_list = JSON.parse(@friend_list)
         @friends = Array.new

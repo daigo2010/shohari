@@ -9,34 +9,25 @@ class ShohariController < ApplicationController
         @bind_self    = Hash.new
         @hidden_self  = Hash.new
         @unknown_self = Hash.new
-        bind_tmp      = Hash.new
+        exist_flgs    = Hash.new
 
         self_awareness.each do |s|
-            open_self_flg = false
             other_awareness.each do |o|
                 if s.question_id == o.question_id then
                     @open_self[s.question_id] = s.question.question
-                    open_self_flg = true
-                    bind_tmp[s.question_id] = true
+                    exist_flgs[s.question_id] = true
                 end
             end
-            if open_self_flg == false then
+            if exist_flgs[s.question_id] != true then
                 @hidden_self[s.question_id] = s.question.question
-                bind_tmp[s.question_id] = true
+                exist_flgs[s.question_id] = true
             end
         end
 
         other_awareness.each do |o|
-            empty_flg = true
-            bind_tmp.each_pair do |user_id, exist_flg|
-                if !exist_flg then
-                    empty_flg = false
-                    break
-                end
-            end
-            if empty_flg then
+            if exist_flgs[o.question_id] != true then
                 @bind_self[o.question_id] = o.question.question
-                bind_tmp[o.question_id] = true
+                exist_flgs[o.question_id] = true
             end
         end
 
@@ -44,7 +35,7 @@ class ShohariController < ApplicationController
         unknown_awareness.each do |u|
             @unknown_self[u.id] = u.question
         end
-        bind_tmp.each_pair do |user_id, exist_flg|
+        exist_flgs.each_pair do |user_id, exist_flg|
             @unknown_self.delete(user_id)
         end
     end
