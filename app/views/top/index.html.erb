@@ -1,12 +1,57 @@
+<div class="row">
+<div class="span8" style="text-align : center;">
+<h1>ショハリ</h1>
 <% if current_user %>
-<ul>
-   <li><%= link_to "self check", "/self/check" %><% if !@done_self_check %>&nbsp;<span class="label label-important">&nbsp;next !!</span><% end %></li>
-   <% if @done_self_check %>
-   <li><%= link_to "other check", "/other/list" %> <% if !@done_other_check %>&nbsp;<span class="label label-important">&nbsp;next !!</span><% end %></li>
-   <% if @exists_my_shohari %>
-   <li><%= link_to "open my shohari", "/shohari/showme" %> </li>
-   <% end %>
-   <% end %>
-</ul>
-<% else %>
+<div class="span7 well" style="text-align : left;">
+<span id="descriptionArea">default</span>
+</div>
+    <div>
+        <%= link_to "self check", "/self/check", :id => 'selfCheck', :class => "btn btn-primary btn-large", :style => 'width : 200px; margin : 10px 10px 0px 10px;'%>
+<% if !@done_self_check %>
+        &nbsp;<span class="label label-important">&nbsp;next !!</span>
 <% end %>
+    </div>
+<% if @done_self_check %>
+    <div>
+        <%= link_to "other check", "/other/list", :id => 'otherCheck', :class => "btn btn-primary btn-large", :style => 'width : 200px; margin : 10px 10px 0px 10px;' %>
+<% if !@done_other_check %>
+        &nbsp;<span class="label label-important">&nbsp;next !!</span>
+<% end %>
+    </div>
+<% if @exists_my_shohari %>
+    <div>
+        <%= link_to "open my shohari", "/shohari/showme", :id => 'openShohari', :class => "btn btn-primary btn-large", :style => 'width : 200px; margin : 10px 10px 0px 10px;' %>
+    </div>
+<% end %>
+<% end %>
+<script type="text/javascript">
+(function() {
+    var defaultDescription = "default";
+    var selfCheckDescription = "selfCheck";
+    var otherCheckDescription = "otherCheck";
+    var openShohariDescription = "openShohari";
+    $("#selfCheck").mouseover(function() {
+        $('#descriptionArea').html(selfCheckDescription);
+    })
+    $("#selfCheck").mouseout(function() {
+        $('#descriptionArea').html(defaultDescription);
+    })
+    $("#otherCheck").mouseover(function() {
+        $('#descriptionArea').html(otherCheckDescription);
+    })
+    $("#otherCheck").mouseout(function() {
+        $('#descriptionArea').html(defaultDescription);
+    })
+    $("#openShohari").mouseover(function() {
+        $('#descriptionArea').html(openShohariDescription);
+    })
+    $("#openShohari").mouseout(function() {
+        $('#descriptionArea').html(defaultDescription);
+    })
+
+})();
+</script>
+<% end %>
+</div>
+</div>
+

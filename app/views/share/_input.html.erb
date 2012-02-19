@@ -1,3 +1,6 @@
+<div class="row">
+<div class="span8">
+
 <% index = 0 %>
 <% @quest.each do |q| %>
 <% if index % 3 == 0 %><div class="row "><% end %>
@@ -27,11 +30,14 @@ end
         <div id="selectedItems"></div>
     </div>
     <div class="modal-footer">
-        <%= submit_tag '登録する', :disable_with => '処理中...', :class => "btn-primary" %>
+        <%= submit_tag '保存する', :disable_with => '処理中...', :class => "btn-primary" %>
         <a href="#" data-dismiss="modal" class="btn">Close</a>
     </div>
 </div>
-<a id="saveLink" href='#saveModal' class="btn btn-primary" data-toggle="modal" />保存する</a>
+<div class="span7" style="text-align : center;">
+<a id="saveLink" href='#saveModal' class="btn btn-primary" data-toggle="modal">保存する</a>
+<%= link_to 'トップに戻る', '/', :class => 'btn' %>
+</div>
 <script type="text/javascript">
 (function(){
     $('#saveLink').click(function(){
@@ -49,3 +55,5 @@ end
     });
 })();
 </script>
+</div>
+</div>

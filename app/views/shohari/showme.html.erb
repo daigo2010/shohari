@@ -1,13 +1,18 @@
+<div class="row">
+<div class="span7" style="text-align : center;">
+<div class="span6 well">
+<span id="descriptionArea">it's result.</span>
+</div>
 
 <div class="row">
-    <div class="window span3 well">
+    <div id="openSelf" class="window span3 well">
         <dl>
         <% @open_self.each_pair do |key, value| %>
             <li><%= value %></li>
         <% end %>
         </dl>
     </div>
-    <div class="window span3 well">
+    <div id="bindSelf" class="window span3 well">
         <dl>
         <% @bind_self.each_pair do |key, value| %>
             <li><%= value %></li>
@@ -16,19 +21,57 @@
     </div>
 </div>
 <div class="row">
-    <div class="window span3 well">
+    <div id="hiddenSelf" class="window span3 well">
         <dl>
         <% @hidden_self.each_pair do |key, value| %>
             <li><%= value %></li>
         <% end %>
         </dl>
     </div>
-    <div class="window span3 well">
+    <div id="unknownSelf" class="window span3 well">
         <dl>
         <% @unknown_self.each_pair do |key, value| %>
             <li><%= value %></li>
         <% end %>
         </dl>
     </div>
-</div
-<%= link_to 'back to home', '/' %>
+    <div class="span7">
+    <%= link_to 'トップに戻る', '/', :class => 'btn' %>  
+    </div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+(function() {
+    var defaultDescription = "it's result";
+    var openSelfDescription = "openSelf";
+    var bindSelfDescription = "bindSelf";
+    var hiddenSelfDescription = "hiddenSelf";
+    var unknownSelfDescription = "unknownSelf";
+    $("#openSelf").mouseover(function() {
+        $("#descriptionArea").html(openSelfDescription);
+    });
+    $("#openSelf").mouseout(function() {
+        $("#descriptionArea").html(defaultDescription);
+    });
+    $("#bindSelf").mouseover(function() {
+        $("#descriptionArea").html(bindSelfDescription);
+    });
+    $("#bindSelf").mouseout(function() {
+        $("#descriptionArea").html(defaultDescription);
+    });
+    $("#hiddenSelf").mouseover(function() {
+        $("#descriptionArea").html(hiddenSelfDescription);
+    });
+    $("#hiddenSelf").mouseout(function() {
+        $("#descriptionArea").html(defaultDescription);
+    });
+    $("#unknownSelf").mouseover(function() {
+        $("#descriptionArea").html(unknownSelfDescription);
+    });
+    $("#unknownSelf").mouseout(function() {
+        $("#descriptionArea").html(defaultDescription);
+    });
+
+})();
+</script>
