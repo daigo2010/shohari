@@ -10,11 +10,42 @@ checked_flg = false;
     end
 end 
 %>
-<div class="span2 well"><%= check_box_tag("question_" + q.id.to_s, "1", checked_flg) %>&nbsp;<%= q.question %></div>
+<div class="span2 well"><%= check_box_tag("question_" + q.id.to_s, q.question, checked_flg, :class => 'question') %>&nbsp;<%= q.question %></div>
 
 <% index = index + 1 %>
 <% if index % 3 == 0 %></div><% end %>
 <% end %>
 <% if index % 3 != 0 %></div><% end %>
 
-<%= submit_tag '登録する', :confirm => 'この内容で登録してよろしいですか？', :disable_with => '処理中...', :class => "btn-primary" %>
+<div class="modal hide fade" id="saveModal">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <h3>your self check</h3>
+    </div>
+    <div class="modal-body">
+        <p>この内容で保存してよろしいですか？</p>
+        <div id="selectedItems"></div>
+    </div>
+    <div class="modal-footer">
+        <%= submit_tag '登録する', :disable_with => '処理中...', :class => "btn-primary" %>
+        <a href="#" data-dismiss="modal" class="btn">Close</a>
+    </div>
+</div>
+<a id="saveLink" href='#saveModal' class="btn btn-primary" data-toggle="modal" />保存する</a>
+<script type="text/javascript">
+(function(){
+    $('#saveLink').click(function(){
+        var formItems = $("form").serializeArray() || [];
+        var reg = new RegExp("^question.*");
+        var displayItems = new Array();
+        for (i = 0; i < formItems.length; i++) {
+            if (formItems[i].name != undefined && formItems[i].name.match(reg)) {
+                displayItems.push(formItems[i].value);
+            }
+        }
+        $("#selectedItems").html("<dl><li>" + 
+            displayItems.join("</li><li>") +
+            "</li></dl>");
+    });
+})();
+</script>
