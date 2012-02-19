@@ -1,8 +1,5 @@
-<div class="row">
-<div class="span8" style="text-align : center;">
-<h1>ショハリ</h1>
 <% if current_user %>
-<div class="span7 well" style="text-align : left;">
+<div class="well" style="text-align : left;">
 <span id="descriptionArea">default</span>
 </div>
     <div>
@@ -27,9 +24,17 @@
 <script type="text/javascript">
 (function() {
     var defaultDescription = "default";
+    var projectTitleDescription = "projectTitle";
     var selfCheckDescription = "selfCheck";
     var otherCheckDescription = "otherCheck";
     var openShohariDescription = "openShohari";
+    $("#projectTitle").mouseover(function() {
+        $('#descriptionArea').html(projectTitleDescription);
+    })
+    $("#projectTitle").mouseout(function() {
+        $('#descriptionArea').html(defaultDescription);
+    })
+
     $("#selfCheck").mouseover(function() {
         $('#descriptionArea').html(selfCheckDescription);
     })
@@ -52,6 +57,4 @@
 })();
 </script>
 <% end %>
-</div>
-</div>
 

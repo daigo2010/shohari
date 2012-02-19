@@ -7,8 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<!--//
+ *
+ * this is open source project. detail is the following url.
+ *
+ * https://github.com/daigo2010/shohari
+ *
+//-->
+<div class="navbar">
+<div class="navbar-inner">
+<div class="container" style="width : auto;">
+    <%= link_to 'ショハリ', '/', :class => 'brand', :id => 'projectTitle' %>
+</div>
+</div>
+</div>
 
+<div class="container" style="text-align : center;">
 <%= yield %>
+</div>
 
 </body>
 </html>

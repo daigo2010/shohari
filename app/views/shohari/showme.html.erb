@@ -1,46 +1,58 @@
-<div class="row">
-<div class="span7" style="text-align : center;">
-<div class="span6 well">
+<div class="well">
 <span id="descriptionArea">it's result.</span>
 </div>
 
-<div class="row">
-    <div id="openSelf" class="window span3 well">
+<table align="center">
+<tr>
+<td>
+<table class="table table-bordered window" id="openSelf">
+    <tr><td style="text-align : center;" >
         <dl>
         <% @open_self.each_pair do |key, value| %>
             <li><%= value %></li>
         <% end %>
         </dl>
-    </div>
-    <div id="bindSelf" class="window span3 well">
+    </td></tr>
+</table>
+</td>
+<td>
+<table class="table table-bordered window" id="bindSelf">
+    <tr><td style="text-align : center;">
         <dl>
         <% @bind_self.each_pair do |key, value| %>
             <li><%= value %></li>
         <% end %>
         </dl>
-    </div>
-</div>
-<div class="row">
-    <div id="hiddenSelf" class="window span3 well">
+    </td></tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table class="table table-bordered window" id="hiddenSelf">
+    <tr><td style="text-align : center;">
         <dl>
         <% @hidden_self.each_pair do |key, value| %>
             <li><%= value %></li>
         <% end %>
         </dl>
-    </div>
-    <div id="unknownSelf" class="window span3 well">
+    </td></tr>
+</table>
+</td>
+<td>
+<table class="table table-bordered window" id="unknownSelf">
+    <tr><td style="text-align : center;">
         <dl>
         <% @unknown_self.each_pair do |key, value| %>
             <li><%= value %></li>
         <% end %>
         </dl>
-    </div>
-    <div class="span7">
-    <%= link_to 'トップに戻る', '/', :class => 'btn' %>  
-    </div>
-</div>
-</div>
-</div>
+    </td></tr>
+</table>
+</td>
+</tr>
+</table>
+<%= link_to 'トップに戻る', '/', :class => 'btn' %>  
 <script type="text/javascript">
 (function() {
     var defaultDescription = "it's result";
