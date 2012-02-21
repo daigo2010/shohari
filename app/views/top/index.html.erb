@@ -3,21 +3,27 @@
 <span id="descriptionArea">default</span>
 </div>
     <div>
-        <%= link_to "self check", "/self/check", :id => 'selfCheck', :class => "btn btn-primary btn-large", :style => 'width : 200px; margin : 10px 10px 0px 10px;'%>
+        <div class="button-inner">
+        <%= link_to "self check", "/self/check", :id => 'selfCheck', :class => "btn btn-primary btn-large linkbutton" %>
 <% if !@done_self_check %>
-        &nbsp;<span class="label label-important">&nbsp;next !!</span>
+        &nbsp;<span class="label label-important absolute">&nbsp;next !!</span>
 <% end %>
+        </div>
     </div>
 <% if @done_self_check %>
     <div>
-        <%= link_to "other check", "/other/list", :id => 'otherCheck', :class => "btn btn-primary btn-large", :style => 'width : 200px; margin : 10px 10px 0px 10px;' %>
+        <div class="button-inner">
+        <%= link_to "other check", "/other/list", :id => 'otherCheck', :class => "btn btn-primary btn-large linkbutton" %>
 <% if !@done_other_check %>
-        &nbsp;<span class="label label-important">&nbsp;next !!</span>
+        &nbsp;<span class="label label-important absolute">&nbsp;next !!</span>
 <% end %>
+        </div>
     </div>
 <% if @exists_my_shohari %>
     <div>
-        <%= link_to "open my shohari", "/shohari/showme", :id => 'openShohari', :class => "btn btn-primary btn-large", :style => 'width : 200px; margin : 10px 10px 0px 10px;' %>
+        <div class="button-inner">
+        <%= link_to "open my shohari", "/shohari/showme", :id => 'openShohari', :class => "btn btn-primary btn-large linkbutton" %>
+        </div>
     </div>
 <% end %>
 <% end %>
