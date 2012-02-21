@@ -6,7 +6,15 @@ class ApplicationController < ActionController::Base
 
     private
     def current_user
-        @current_user ||= User.find(session[:user_id]) if session[:user_id]
+        if session['user_id'] then
+            begin
+                @current_user ||= User.find(session[:user_id]) if session[:user_id]
+            rescue
+                reset_session
+                redirect_to '/auth/facebook'
+                return
+            end
+        end
     end
     def session_check
         if session[:access_token] then
