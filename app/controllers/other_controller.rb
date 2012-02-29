@@ -7,7 +7,7 @@ class OtherController < ApplicationController
             res = User.where('uid = :uid', :uid => f['id'])
             next if !res
             res.each do |r|
-                @friends.push({:user_id => r.id, :name => r.name})
+                @friends.push({:user_id => r.id, :name => r.name, :id => f['id']})
             end
         end
     end
@@ -16,6 +16,8 @@ class OtherController < ApplicationController
         @quest = Question.where("location = :location", :location => "jp")
         @answer = Answer.where("answer_user_id = :answer_user_id AND target_user_id = :target_user_id", :answer_user_id => session[:user_id], :target_user_id => params[:user_id])
         @user_id = params[:user_id]
+        @uid = params[:uid]
+        @uname = params[:uname]
     end
 
     def post
