@@ -1,3 +1,10 @@
+<div class="top-icon">
+    <img src="<%= "https://graph.facebook.com/" + @uid + "/picture" %>" style="vertical-align: middle; margin-right: 10px;"/><span style="vertical-align: middle;"><%= @uname %> 's check</span>
+</div>
+<div class="counter">
+<span id="nowCount">0</span><span style="vertical-align: bottom;">&nbsp;/&nbsp;7<span>
+</div>
+
 <table class="table table-bordered">
 <% index = 0 %>
 <% @quest.each do |q| %>
@@ -34,7 +41,16 @@ end
 <a id="saveLink" href='#saveModal' class="btn btn-primary" data-toggle="modal">保存する</a>
 <%= link_to 'トップに戻る', '/', :class => 'btn' %>
 <script type="text/javascript">
-(function(){
+$(document).ready(function(){
+    var nowCount = 0;
+    tmp = $(".question");
+    for (i = 0; i < tmp.length; i++) {
+        if (tmp[i].checked) {
+            nowCount++;
+        }
+    }
+    $("#nowCount").html(nowCount);
+    
     $('#saveLink').click(function(){
         var formItems = $("form").serializeArray() || [];
         var reg = new RegExp("^question.*");
@@ -48,5 +64,20 @@ end
             displayItems.join("</li><li>") +
             "</li></dl>");
     });
-})();
+    $('.question').click(function() {
+        if (this.checked) {
+            nowCount++;
+        } else if (nowCount > 0) {
+            nowCount--;
+        }
+        if (nowCount == 7) {
+            $('.counter').css({color:"green", fontSize:"48px"});
+        } else if (nowCount > 7) {
+            $('.counter').css({color:"red", fontSize:"32px"});
+        } else {
+            $('.counter').css({color:"black", fontSize:"32px"});
+        }
+        $("#nowCount").html(nowCount);
+    });
+});
 </script>

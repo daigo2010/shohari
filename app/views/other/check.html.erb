@@ -1,7 +1,5 @@
 <%= form_tag({:controller => 'other', :action => 'post'}) do %>
 
-<img src="<%= "https://graph.facebook.com/" + @uid + "/picture" %>" style="vertical-align: middle;"/><span style="vertical-align: middle;"><%= @uname %> 's check</span>
-
 <%= render :partial => 'share/input' %>
 
 <%= hidden_field_tag(:user_id, @user_id) %>  

@@ -27,8 +27,10 @@ class SessionsController < ApplicationController
 
     session[:user_id] = user.id
     session[:graph_user_id] = auth["uid"]
+    session[:name] = auth["info"]["name"]
     session[:access_token]  = auth["credentials"]["token"]
     session[:provider]      = auth["provider"]
+    
     redirect_to "/"
   end
 

@@ -11,3 +11,14 @@
  *= require_self
  *= require_tree .
 */
+.top-icon {
+margin: 10px 10px 10px 10px;
+float: left;
+}
+.counter {
+margin: 10px 10px 10px 10px;
+height: 50px;
+float: right;
+font-size:32px;
+vertical-align: bottom;
+}
