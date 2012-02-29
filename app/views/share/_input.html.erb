@@ -18,7 +18,7 @@ checked_flg = false;
     end
 end 
 %>
-<td><%= check_box_tag("question_" + q.id.to_s, q.question, checked_flg, :class => 'question') %>&nbsp;<%= q.question %></td>
+<td><%= check_box_tag("question_" + q.id.to_s, q.question, checked_flg, :class => 'question', :style => "float: left;") %><label for="question_<%= q.id.to_s %>">&nbsp;:&nbsp;<%= q.question %></label></td>
 <% index = index + 1 %>
 <% if index % 3 == 0 %></tr><% end %>
 <% end %>
