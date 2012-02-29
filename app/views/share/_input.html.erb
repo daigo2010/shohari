@@ -38,6 +38,7 @@ end
         <a href="#" data-dismiss="modal" class="btn">Close</a>
     </div>
 </div>
+<div id="warningText" style="color: red;"></div>
 <a id="saveLink" href='#saveModal' class="btn btn-primary" data-toggle="modal">保存する</a>
 <%= link_to 'トップに戻る', '/', :class => 'btn' %>
 <script type="text/javascript">
@@ -72,10 +73,16 @@ $(document).ready(function(){
         }
         if (nowCount == 7) {
             $('.counter').css({color:"green", fontSize:"48px"});
+            $('#warningText').html("");
+            $('#saveLink').show();
         } else if (nowCount > 7) {
             $('.counter').css({color:"red", fontSize:"32px"});
+            $('#warningText').html("select checkbox less than 8");
+            $('#saveLink').hide();
         } else {
             $('.counter').css({color:"black", fontSize:"32px"});
+            $('#warningText').html("");
+            $('#saveLink').show();
         }
         $("#nowCount").html(nowCount);
     });
