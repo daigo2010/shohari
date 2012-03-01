@@ -38,6 +38,7 @@ end
         <a href="#" data-dismiss="modal" class="btn">Close</a>
     </div>
 </div>
+<%= hidden_field_tag 'nowCount', '0', :id => 'nowCountInput' %>
 <div id="warningText" style="color: red;"></div>
 <a id="saveLink" href='#saveModal' class="btn btn-primary" data-toggle="modal">保存する</a>
 <%= link_to 'トップに戻る', '/', :class => 'btn' %>
@@ -64,6 +65,7 @@ $(document).ready(function(){
         $("#selectedItems").html("<dl><li>" + 
             displayItems.join("</li><li>") +
             "</li></dl>");
+        $("#nowCountInput").val(nowCount);
     });
     $('.question').click(function() {
         if (this.checked) {

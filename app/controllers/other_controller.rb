@@ -21,6 +21,7 @@ class OtherController < ApplicationController
     end
 
     def post
+        redirect_to '/other/check?user_id=' + params[:user_id] + 'uid=' + params[:uid] + '&uname=' + params[:uname]  if Shohari::Application.config.maxCount < params['nowCount'].to_i
         Answer.destroy_all(['answer_user_id = :answer_user_id AND target_user_id = :target_user_id', {:answer_user_id => session[:user_id], :target_user_id => params[:user_id]}])
         @quest = Question.where("location = :location", :location => "jp")
         @quest.each do |q|
