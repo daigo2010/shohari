@@ -8,9 +8,9 @@ class SelfController < ApplicationController
 
     def post
         redirect_to '/self/check' if Shohari::Application.config.maxCount < params['nowCount'].to_i
-        Answer.destroy_all(['answer_user_id = :user_id AND target_user_id = :user_id', {:user_id => session[:user_id]}])
-        @quest = Question.where("location = :location", :location => "jp")
         Answer.transaction do
+            Answer.destroy_all(['answer_user_id = :user_id AND target_user_id = :user_id', {:user_id => session[:user_id]}])
+            @quest = Question.where("location = :location", :location => "jp")
             @quest.each do |q|
                 key = q.id.to_s
                     if params["question_" + q.id.to_s] then
