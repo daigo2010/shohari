@@ -10,17 +10,20 @@ class ShohariController < ApplicationController
         @hidden_self  = Hash.new
         @unknown_self = Hash.new
         exist_flgs    = Hash.new
+        @exist        = false;
 
         self_awareness.each do |s|
             other_awareness.each do |o|
                 if s.question_id == o.question_id then
                     @open_self[s.question_id] = s.question.question
                     exist_flgs[s.question_id] = true
+                    @exist = true;
                 end
             end
             if exist_flgs[s.question_id] != true then
                 @hidden_self[s.question_id] = s.question.question
                 exist_flgs[s.question_id] = true
+                @exist = true;
             end
         end
 
@@ -28,15 +31,18 @@ class ShohariController < ApplicationController
             if exist_flgs[o.question_id] != true then
                 @bind_self[o.question_id] = o.question.question
                 exist_flgs[o.question_id] = true
+                @exist = true;
             end
         end
 
-        unknown_awareness = Question.where('location = :location', :location => 'jp')
-        unknown_awareness.each do |u|
-            @unknown_self[u.id] = u.question
-        end
-        exist_flgs.each_pair do |user_id, exist_flg|
-            @unknown_self.delete(user_id)
+        if @exist then
+            unknown_awareness = Question.where('location = :location', :location => 'jp')
+            unknown_awareness.each do |u|
+                @unknown_self[u.id] = u.question
+            end
+            exist_flgs.each_pair do |user_id, exist_flg|
+                @unknown_self.delete(user_id)
+            end
         end
     end
 end

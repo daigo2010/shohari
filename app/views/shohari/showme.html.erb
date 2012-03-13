@@ -1,7 +1,10 @@
 <div class="well">
-<span id="descriptionArea">it's result.</span>
+<p id="descriptionArea"><% if @exist %>it's result.<% else %>regist your self check and invite your friends.<% end %></p>
+<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fshohari.com%2F&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=208326842542197" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://shohari.com" data-text="他己分析サービス&quot;shohari&quot; - 他の人の評価から、あなたの知らない自分がわかるかも" data-via="shohari" data-lang="ja" data-hashtags="shohari">ツイート</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </div>
 
+<% if @exist %>
 <table align="center">
 <tr>
 <td>
@@ -52,6 +55,7 @@
 </td>
 </tr>
 </table>
+<% end %>
 <%= link_to 'トップに戻る', '/', :class => 'btn' %>  
 <script type="text/javascript">
 (function() {
