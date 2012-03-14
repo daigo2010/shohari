@@ -1,7 +1,7 @@
 <div class="well">
-<p id="descriptionArea"><% if @exist %>it's result.<% else %>regist your self check and invite your friends.<% end %></p>
-<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fshohari.com%2F&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=208326842542197" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+<p id="descriptionArea"><% if @exist %>これがあなたの結果です！ <br /><br />それぞれの窓にマウスポインタを合わせると、詳細な説明が表示されます。<% else %>他の人からの評価がないため、結果を表示できません。友達を誘ってみましょう！<br /><br /><iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fshohari.com%2F&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=208326842542197" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://shohari.com" data-text="他己分析サービス&quot;shohari&quot; - 他の人の評価から、あなたの知らない自分がわかるかも" data-via="shohari" data-lang="ja" data-hashtags="shohari">ツイート</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<% end %></p>
 </div>
 
 <% if @exist %>
@@ -59,11 +59,11 @@
 <%= link_to 'トップに戻る', '/', :class => 'btn' %>  
 <script type="text/javascript">
 (function() {
-    var defaultDescription = "it's result";
-    var openSelfDescription = "openSelf";
-    var bindSelfDescription = "bindSelf";
-    var hiddenSelfDescription = "hiddenSelf";
-    var unknownSelfDescription = "unknownSelf";
+    var defaultDescription = "これがあなたの結果です！ <br /><br />それぞれの窓にマウスポインタを合わせると、詳細な説明が表示されます。";
+    var openSelfDescription = "開放の窓です。これは、自分も友達も知っているあなたの性格です。<br /><br />この窓が大きいほど、自己開示が進んでいて、ありのままの自分を出せていることになります。";
+    var bindSelfDescription = "盲点の窓です。これは、友達が思っているあなたの性格です。<br /><br />あなたは気づいていないかもしれませんが、外から観るとあなたはこのような性格をしているということになります。";
+    var hiddenSelfDescription = "秘密の窓です。友達は知らないけれどもあなた自身は自分をこういう性格だということになります。<br /><br />自覚のあるなしを問わず、結果的にああなたはこの性格を他の人から隠していることになります。";
+    var unknownSelfDescription = "未知の窓です。あなたも知らないし、友達も知らないあなたの性格です。<br /><br />この性格はあなたの中にあるかもしれないし、無いかもしれません。";
     $("#openSelf").mouseover(function() {
         $("#descriptionArea").html(openSelfDescription);
     });

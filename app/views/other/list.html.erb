@@ -1,13 +1,12 @@
 <table class="table table-striped" style="width : 70%;" align="center">
 <tr>
-    <th>target</th>
-    <th></th>
+    <th colspan="2">性格診断する友達を選んでください</th>
 </tr>
 <% if @friends %>
 <% @friends.each do |f| %>
 <tr>
     <td style="vertical-align: middle;"><img src="<%= "https://graph.facebook.com/" + f[:id].to_s + "/picture" %>" style="vertical-align: middle; margin-right: 10px;"/><span><%= f[:name] %></span></td>
-    <td style="text-align : right; vertical-align: middle;"><%= link_to 'check', {:controller => 'other', :action => 'check', :user_id => f[:user_id], :uid => f[:id], :uname => f[:name]}, :class => 'btn btn-primary' %></td>
+    <td style="text-align : right; vertical-align: middle;"><%= link_to '選択', {:controller => 'other', :action => 'check', :user_id => f[:user_id], :uid => f[:id], :uname => f[:name]}, :class => 'btn btn-primary' %></td>
 </tr>
     
 <% end %>

@@ -1,5 +1,5 @@
 <div class="top-icon">
-    <img src="<%= "https://graph.facebook.com/" + @uid + "/picture" %>" style="vertical-align: middle; margin-right: 10px;"/><span style="vertical-align: middle;"><%= @uname %> 's check</span>
+    <img src="<%= "https://graph.facebook.com/" + @uid + "/picture" %>" style="vertical-align: middle; margin-right: 10px;"/><span style="vertical-align: middle;"><%= @uname %> さんの性格に当てはまる項目を７つまで選んでください。</span>
 </div>
 <div class="counter">
 <span id="nowCount">0</span><span style="vertical-align: bottom;">&nbsp;/&nbsp;7<span>
@@ -30,7 +30,7 @@ end
         <h3>your self check</h3>
     </div>
     <div class="modal-body">
-        <p>この内容で保存してよろしいですか？</p>
+        <p>この内容で登録してよろしいですか？</p>
         <div id="selectedItems"></div>
     </div>
     <div class="modal-footer" style="text-align : right;">
@@ -79,7 +79,7 @@ $(document).ready(function(){
             $('#saveLink').show();
         } else if (nowCount > 7) {
             $('.counter').css({color:"red", fontSize:"32px"});
-            $('#warningText').html("select checkbox less than 8");
+            $('#warningText').html("8個以上は登録できません");
             $('#saveLink').hide();
         } else {
             $('.counter').css({color:"black", fontSize:"32px"});

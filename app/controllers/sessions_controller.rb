@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
         request = Net::HTTP::Post.new(uri.path)
-        request.set_form_data({:message => 'regist', 
+        request.set_form_data({:message => 'ソーシャルなジョハリの窓「ショハリ」に登録しました！ あなたはどれだけ自己評価できていますか？ ショハリでチェックしましょう！', 
                                :access_token => auth["credentials"]["token"]})
         response = http.request(request)
     end

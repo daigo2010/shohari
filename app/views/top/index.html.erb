@@ -1,6 +1,6 @@
 <% if current_user %>
 <div class="well" style="text-align : left;">
-<span id="descriptionArea">default</span>
+<span id="descriptionArea">ショハリはあなたが知っている自分と他人が知っている自分の違いを発見するためのサービスです。<br /><br />まずは自己評価をしてみましょう。そして自己評価が終わったら友達にあなたの評価をしてもらってください。<br /><br />あなた自身も知らない、あなたの意外な一面が分かるかもしれませんよ。</span>
 </div>
     <div>
         <div class="button-inner">
@@ -28,11 +28,11 @@
 
 <script type="text/javascript">
 (function() {
-    var defaultDescription = "default";
-    var projectTitleDescription = "projectTitle";
-    var selfCheckDescription = "selfCheck";
-    var otherCheckDescription = "otherCheck";
-    var openShohariDescription = "openShohari";
+    var defaultDescription = "ショハリはあなたが知っている自分と他人が知っている自分の違いを発見するためのサービスです。<br /><br />まずは自己評価をしてみましょう。そして自己評価が終わったら友達にあなたの評価をしてもらってください。<br /><br />あなた自身も知らない、あなたの意外な一面が分かるかもしれませんよ。";
+    var projectTitleDescription = "このリンクをクリックするとどこからでもトップに戻ります。<br /><br /><br /><br /><br />";
+    var selfCheckDescription = "まずは自分が思う自分の性格を登録しましょう。<br /><br />あなたが思う自分の性格を７つまで選んでください。<br /><br /><br />";
+    var otherCheckDescription = "このサービスを使っているFacebook上の友達の性格も登録してみましょう。<br /><br />誰が設定したかは本人には伝わりませんので、思うままに登録してみてください。<br /><br />友達がこのサービスを使っていないと評価できないので、どんどん誘ってあげてください。<br />";
+    var openShohariDescription = "さあ結果発表です。<br /><br />あなたが知っている自分と、友達が知っている自分は、どれだけ一緒でしょうか。<br /><br />ちなみに、友達から評価を受けていない場合は結果は表示されませんので、その時は友達に登録をお願いしてみましょう。<br />";
     $("#projectTitle").mouseover(function() {
         $('#descriptionArea').html(projectTitleDescription);
     })
@@ -61,5 +61,8 @@
 
 })();
 </script>
+<% else %>
+<h3>ショハリをつかって<br />自分の知らない自分<br />他の人には知られていない自分を<br />明らかにしてみましょう！</h3>
+<a href="/auth/facebook"><%= image_tag "login.jpg" %></a>
 <% end %>
 

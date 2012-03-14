@@ -24,7 +24,6 @@ class ShohariController < ApplicationController
             if exist_flgs[s.question_id] != true then
                 @hidden_self[s.question_id] = s.question.question
                 exist_flgs[s.question_id] = true
-                @exist = true;
             end
         end
 
