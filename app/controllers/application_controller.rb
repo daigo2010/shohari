@@ -34,7 +34,6 @@ class ApplicationController < ActionController::Base
             @friend_list = response.body
         else
             reset_session
-            redirect_to '/auth/facebook'
             return
         end
     end
