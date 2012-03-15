@@ -1,5 +1,5 @@
 class ShohariController < ApplicationController
-    caches_action :showme, :expires_in => 1800.minutes
+    caches_action :showme, :expires_in => 5.minutes
     def showme
         self_awareness  = Answer.where('answer_user_id = :user_id AND target_user_id = :user_id', :user_id => session[:user_id]).
                                  select('question_id')
