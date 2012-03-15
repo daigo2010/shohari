@@ -1,5 +1,4 @@
 class OtherController < ApplicationController
-    caches_action :list, :expires_in => 5.minutes
     def list
         require 'json'
         friend_list = JSON.parse(@friend_list)
