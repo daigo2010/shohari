@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
     protect_from_forgery
 
     helper_method :current_user
-    before_filter :session_check, :except => 'create'
+    before_filter :session_check, :except => [:index, :create]
 
     private
     def current_user
@@ -34,6 +34,7 @@ class ApplicationController < ActionController::Base
             @friend_list = response.body
         else
             reset_session
+            redirect_to '/'
             return
         end
     end
