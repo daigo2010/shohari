@@ -1,3 +1,4 @@
+# encoding: utf-8
 class OtherController < ApplicationController
     def list
         require 'json'

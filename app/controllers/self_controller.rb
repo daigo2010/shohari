@@ -1,3 +1,4 @@
+# encoding: utf-8
 class SelfController < ApplicationController
     def check 
         @quest = Question.where("location = :location", :location => "jp")

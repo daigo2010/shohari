@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ShohariController < ApplicationController
     def showme
         self_awareness  = Answer.where('answer_user_id = :user_id AND target_user_id = :user_id', :user_id => session[:user_id]).
